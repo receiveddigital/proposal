@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Received Digital — Grand Canyon University Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1117;
+    --ink-muted: #4a4d5a;
+    --ink-faint: #9097a8;
+    --bg: #fafaf8;
+    --bg-card: #ffffff;
+    --bg-tint: #f2f1ee;
+    --accent: #4a1c6e;
+    --accent-mid: #7b3fb5;
+    --accent-light: #f3ecfa;
+    --gold: #b8860b;
+    --gold-light: #fdf8ee;
+    --green: #1a5c3a;
+    --green-light: #eaf5ef;
+    --border: #e2e0db;
+    --shadow-sm: 0 2px 8px rgba(15,17,23,0.06);
+    --shadow-md: 0 8px 32px rgba(15,17,23,0.10);
+    --shadow-lg: 0 24px 64px rgba(15,17,23,0.12);
+    --r: 4px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-brand {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    font-size: 12px; font-weight: 500;
+    color: var(--ink-muted); text-decoration: none;
+    letter-spacing: 0.04em; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--accent);
+    color: #fff;
+    padding: 80px 40px 72px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 110% 120%, rgba(123,63,181,0.5) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 80% at -10% 50%, rgba(26,90,70,0.15) 0%, transparent 60%);
+  }
+  .hero-inner { max-width: 860px; margin: 0 auto; position: relative; }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 700; line-height: 1.12;
+    letter-spacing: -0.02em; margin-bottom: 16px;
+  }
+  .hero h1 span { color: rgba(255,255,255,0.5); }
+  .hero-sub {
+    font-size: 16px; font-weight: 300;
+    color: rgba(255,255,255,0.72);
+    max-width: 560px; line-height: 1.65; margin-bottom: 40px;
+  }
+  .hero-meta { display: flex; gap: 32px; flex-wrap: wrap; }
+  .hero-meta-item { display: flex; flex-direction: column; gap: 3px; }
+  .hero-meta-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+  .hero-meta-value { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.88); }
+
+  /* ─── MAIN ─── */
+  main { max-width: 900px; margin: 0 auto; padding: 64px 40px 100px; }
+
+  /* ─── SECTIONS ─── */
+  section { margin-bottom: 72px; }
+  section:last-child { margin-bottom: 0; }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 24px;
+    padding-bottom: 10px; border-bottom: 1px solid var(--border);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 700;
+    letter-spacing: -0.02em; color: var(--ink); margin-bottom: 16px;
+  }
+  h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 12px;
+  }
+  p { color: var(--ink-muted); margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ─── COVER LETTER ─── */
+  .letter-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--r);
+    padding: 40px 44px;
+    box-shadow: var(--shadow-sm);
+  }
+  .letter-card p { font-size: 15px; line-height: 1.75; }
+  .letter-sig { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); }
+  .letter-sig-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+  .letter-sig-title { font-size: 13px; color: var(--ink-faint); }
+  .letter-sig-contact { font-size: 13px; color: var(--accent-mid); margin-top: 6px; }
+
+  /* ─── KPI STRIP ─── */
+  .kpi-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 32px 0; }
+  .kpi-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--r); padding: 28px 24px; text-align: center;
+    box-shadow: var(--shadow-sm); transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .kpi-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .kpi-card.featured { background: var(--accent); border-color: transparent; }
+  .kpi-value { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 6px; }
+  .kpi-card.featured .kpi-value { color: #fff; }
+  .kpi-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); }
+  .kpi-card.featured .kpi-label { color: rgba(255,255,255,0.6); }
+  .kpi-sub { font-size: 11px; color: var(--ink-faint); margin-top: 4px; }
+  .kpi-card.featured .kpi-sub { color: rgba(255,255,255,0.5); }
+
+  /* ─── CALLOUT ─── */
+  .callout {
+    background: var(--gold-light); border: 1px solid #e8d48a;
+    border-radius: var(--r); padding: 20px 24px; margin: 20px 0;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+  .callout p { color: #6b5200; font-size: 14px; margin-bottom: 0; }
+  .callout strong { color: #4a3900; }
+
+  .callout.purple {
+    background: var(--accent-light); border-color: #c9a0e8;
+  }
+  .callout.purple p { color: #3a1255; }
+  .callout.purple strong { color: #2a0d40; }
+
+  /* ─── TABLES ─── */
+  .table-wrap {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--r); overflow: hidden;
+    box-shadow: var(--shadow-sm); margin: 20px 0;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead tr { background: var(--accent); }
+  thead th {
+    padding: 13px 18px; text-align: left; font-weight: 600;
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+  }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--accent-light); }
+  tbody td { padding: 11px 18px; color: var(--ink-muted); }
+  tbody td:first-child { font-weight: 500; color: var(--ink); }
+  .td-num { font-family: 'DM Mono', monospace; font-size: 13px; }
+  .td-highlight { background: var(--green-light); font-weight: 600; color: var(--green) !important; }
+  tbody tr.row-total { background: var(--accent-light); }
+  tbody tr.row-total td { font-weight: 600; color: var(--accent) !important; border-top: 2px solid var(--accent); }
+
+  /* ─── CURRENT VS FUTURE TABLE ─── */
+  .compare-table thead tr { background: var(--accent); }
+  .compare-table .col-before { background: #fef5f5; color: #7a1a1a !important; }
+  .compare-table .col-after { background: var(--green-light); color: var(--green) !important; font-weight: 500; }
+
+  /* ─── SCENARIO CARDS ─── */
+  .scenario-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+  .scenario-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--r); padding: 24px 20px; box-shadow: var(--shadow-sm);
+  }
+  .scenario-card.realistic { border-color: var(--accent-mid); box-shadow: 0 4px 24px rgba(74,28,110,0.12); }
+  .scenario-badge {
+    display: inline-block; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 2px; margin-bottom: 14px;
+  }
+  .badge-conservative { background: var(--bg-tint); color: var(--ink-faint); }
+  .badge-realistic { background: var(--accent); color: #fff; }
+  .badge-optimistic { background: var(--green-light); color: var(--green); }
+  .scenario-rate { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--ink-faint); margin-bottom: 16px; }
+  .scenario-metric { margin-bottom: 10px; }
+  .scenario-metric-label { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; }
+  .scenario-metric-value { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--ink); line-height: 1.2; }
+  .scenario-card.realistic .scenario-metric-value { color: var(--accent); }
+  .scenario-divider { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+  .scenario-roi { font-size: 13px; font-weight: 600; color: var(--green); display: flex; justify-content: space-between; align-items: center; }
+
+  /* ─── STEPS ─── */
+  .steps-list { list-style: none; margin: 20px 0; }
+  .step-item { display: flex; gap: 16px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .step-item:last-child { border-bottom: none; }
+  .step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-title { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+  .step-body { font-size: 13px; color: var(--ink-muted); }
+
+  /* ─── IMPACT GRID ─── */
+  .impact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 24px 0; }
+  .impact-item {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--r); padding: 22px 22px 22px 18px;
+    display: flex; gap: 14px; box-shadow: var(--shadow-sm);
+  }
+  .impact-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 8px; }
+  .impact-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 5px; }
+  .impact-body { font-size: 13px; color: var(--ink-muted); line-height: 1.6; }
+
+  /* ─── KEYSTROKE BOX ─── */
+  .keystroke-box {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0;
+  }
+  .ks-card {
+    background: var(--accent); border-radius: var(--r);
+    padding: 24px 20px; text-align: center;
+  }
+  .ks-value { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: #fff; line-height: 1; margin-bottom: 6px; }
+  .ks-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+  .ks-card.light { background: var(--accent-light); }
+  .ks-card.light .ks-value { color: var(--accent); }
+  .ks-card.light .ks-label { color: var(--accent-mid); }
+
+  /* ─── REFS ─── */
+  .ref-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 20px 0; }
+  .ref-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 18px 20px; box-shadow: var(--shadow-sm); }
+  .ref-name { font-weight: 600; color: var(--ink); margin-bottom: 2px; font-size: 14px; }
+  .ref-title { font-size: 12px; color: var(--ink-faint); margin-bottom: 10px; line-height: 1.4; }
+  .ref-contact { font-size: 12px; color: var(--accent-mid); }
+  .ref-contact a { color: inherit; text-decoration: none; }
+  .ref-contact a:hover { text-decoration: underline; }
+
+  /* ─── RESOURCES ─── */
+  .resource-list { list-style: none; }
+  .resource-item { padding: 12px 16px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border); transition: background 0.15s; border-radius: var(--r); }
+  .resource-item:last-child { border-bottom: none; }
+  .resource-item:hover { background: var(--accent-light); }
+  .resource-icon { font-size: 16px; flex-shrink: 0; }
+  .resource-link { font-size: 14px; color: var(--accent-mid); text-decoration: none; font-weight: 500; }
+  .resource-link:hover { text-decoration: underline; }
+  .resource-meta { font-size: 12px; color: var(--ink-faint); margin-top: 1px; }
+
+  /* ─── PULL QUOTE ─── */
+  .pull-quote {
+    border-left: 3px solid var(--accent); padding: 16px 24px; margin: 20px 0;
+    background: var(--accent-light); border-radius: 0 var(--r) var(--r) 0;
+  }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-size: 15px; font-style: italic; color: var(--accent); margin-bottom: 8px; line-height: 1.6; }
+  .pull-quote cite { font-size: 12px; color: var(--ink-faint); font-style: normal; }
+
+  /* ─── INVESTMENT BOX ─── */
+  .investment-box {
+    background: var(--accent); color: #fff; border-radius: var(--r);
+    padding: 36px 40px; display: grid; grid-template-columns: 1fr auto;
+    gap: 24px; align-items: center; margin: 24px 0; box-shadow: var(--shadow-md);
+  }
+  .inv-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+  .inv-amount { font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 700; line-height: 1; color: #fff; }
+  .inv-period { font-size: 14px; color: rgba(255,255,255,0.55); margin-top: 4px; }
+  .inv-notes { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+  .inv-badge { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 2px; padding: 12px 20px; text-align: center; }
+  .inv-badge-val { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: #fff; }
+  .inv-badge-lbl { font-size: 11px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
+
+  /* ─── ESTIMATE ─── */
+  .estimate-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow-sm); margin: 20px 0; }
+  .estimate-header { background: var(--bg-tint); padding: 20px 28px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-start; }
+  .est-title { font-size: 16px; font-weight: 600; color: var(--ink); }
+  .est-number { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
+  .est-dates { text-align: right; font-size: 12px; color: var(--ink-faint); }
+  .estimate-body { padding: 0 28px; }
+  .estimate-footer { padding: 20px 28px; background: var(--bg-tint); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .est-total-label { font-size: 13px; font-weight: 600; color: var(--ink-muted); }
+  .est-total-amount { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--accent); }
+
+  /* ─── UNIFICATION BOX ─── */
+  .unification-box {
+    background: linear-gradient(135deg, var(--accent) 0%, #2d0a4a 100%);
+    border-radius: var(--r); padding: 36px 40px; color: #fff;
+    margin: 24px 0; box-shadow: var(--shadow-md);
+  }
+  .unification-box h3 { color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+  .unification-box h2 { color: #fff; font-family: 'Playfair Display', serif; margin-bottom: 16px; }
+  .unification-box p { color: rgba(255,255,255,0.75); }
+  .unif-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+  .unif-stat { text-align: center; }
+  .unif-val { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: #fff; }
+  .unif-lbl { font-size: 11px; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
+
+  /* ─── DIVIDER ─── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+  /* ─── FOOTER ─── */
+  footer { background: var(--ink); color: rgba(255,255,255,0.5); text-align: center; padding: 32px 40px; font-size: 12px; }
+  footer strong { color: rgba(255,255,255,0.8); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-inner > * { animation: fadeUp 0.6s ease both; }
+  .hero-inner > *:nth-child(1) { animation-delay: 0.05s; }
+  .hero-inner > *:nth-child(2) { animation-delay: 0.15s; }
+  .hero-inner > *:nth-child(3) { animation-delay: 0.25s; }
+  .hero-inner > *:nth-child(4) { animation-delay: 0.35s; }
+
+  @media (max-width: 680px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 48px 24px; }
+    main { padding: 40px 24px 80px; }
+    .kpi-strip, .scenario-grid, .impact-grid, .ref-grid, .keystroke-box, .unif-stats { grid-template-columns: 1fr; }
+    .investment-box { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">Received Digital · Grand Canyon University</span>
+  <ul class="nav-links">
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#analysis">Analysis</a></li>
+    <li><a href="#scenarios">Scenarios</a></li>
+    <li><a href="#unification">Unification</a></li>
+    <li><a href="#estimate">Estimate</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Proposal · March 18, 2026</div>
+    <h1>Three Steps Become <span>One</span><br>at Grand Canyon University</h1>
+    <p class="hero-sub">Eliminating the dual-database manual workflow behind 130,000 letter mail pieces per year — replacing stamp machines, Qtrak lookups, and hand-written box numbers with a single image capture that timestamps, assigns, and routes automatically.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Investment</span>
+        <span class="hero-meta-value">$22,900 / year</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Annual Value</span>
+        <span class="hero-meta-value">$24,110–$36,872</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Payback</span>
+        <span class="hero-meta-value">7.5–11.4 months</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Hours Recovered</span>
+        <span class="hero-meta-value">~1,986 hrs/year</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- COVER LETTER -->
+  <section id="letter">
+    <div class="section-label">Cover Letter</div>
+    <div class="letter-card">
+      <p>Bob and Stephanie,</p>
+      <br>
+      <p>Thank you for the time you've invested in evaluating Received Digital — from our initial conversation through to the on-site visit. What started as a discussion about the operational burden of processing 130,000 letter mail pieces through a dual-database manual workflow has grown into a clear, well-documented opportunity, and I appreciate the candor and openness you've brought to every step of the process.</p>
+      <p>The attached value analysis puts specific numbers behind what you both already know from the floor every day: the current process works because of the people running it, not because of the systems supporting it. Student workers manually keying recipient names into two separate databases, hand-writing box numbers, and sorting into buckets by memory gets the mail delivered — but it leaves no record, creates no accountability trail, and gives recipients no visibility. When something goes wrong, there is no way to prove what happened.</p>
+      <p>Received Digital changes that. Every piece of letter mail is captured, assigned, tracked, and delivered with a complete chain of custody. Recipients are notified automatically. The mailroom can answer any delivery question in seconds. And the institutional knowledge that currently lives in staff heads gets captured permanently in the system — so it is never lost to turnover or absence.</p>
+      <p>The financial case is straightforward. At the realistic scenario, the $22,900 annual investment generates $28,632 in operational value — a 25% ROI with a 9.6-month payback. At the conservative scenario, payback comes within 12 months. Those figures are based exclusively on letter mail and reflect only the directly quantifiable savings.</p>
+      <p>We have structured this as a straightforward annual agreement, and our customer success team monitors usage proactively so there are no surprises at renewal. Implementation takes one day after the purchase order is issued.</p>
+      <p>We look forward to answering any remaining questions and supporting you and your team through the next steps as efficiently as possible.</p>
+
+      <div class="letter-sig">
+        <div class="letter-sig-name">Jason Donnay</div>
+        <div class="letter-sig-title">Vice President of Sales · Digitalized Software, Inc.</div>
+        <div class="letter-sig-contact">jdonnay@digitalizedsoftware.com · 320-296-4232</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <section id="summary">
+    <div class="section-label">Executive Summary</div>
+    <h2>The Problem in Plain Terms</h2>
+    <p>GCU's letter mail workflow requires <strong>three manual steps for every single piece</strong> — a physical date/time stamp, a dual database lookup across Qtrak and an Excel spreadsheet, and a manual three-bucket sort. At 500 letters per day, that is approximately 130,000 pieces per year processed through a workflow that has no learning, no chain of custody, and no way to answer "where is my letter?" with any certainty.</p>
+    <p>The result: excessive staff time on repetitive decisioning, no defensible audit trail for high-stakes mail (checks, tax/financial documents, immigration paperwork), and a system that gets harder to manage — not easier — as enrollment grows.</p>
+
+    <div class="kpi-strip">
+      <div class="kpi-card">
+        <div class="kpi-value">1,986</div>
+        <div class="kpi-label">Hours Recovered / Year</div>
+        <div class="kpi-sub">Realistic scenario</div>
+      </div>
+      <div class="kpi-card featured">
+        <div class="kpi-value">9.6 mo</div>
+        <div class="kpi-label">Payback Period</div>
+        <div class="kpi-sub">Realistic scenario</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">~1.8M</div>
+        <div class="kpi-label">Keystrokes Eliminated</div>
+        <div class="kpi-sub">Per year, current state</div>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <p>"500 hand by hand into two different databases just to get to where that one goes."</p>
+      <cite>— Bob Shelt, Director of Facility Operations Support · Discovery Call</cite>
+    </div>
+
+    <h2 style="margin-top:32px;">What Changes with Received Digital</h2>
+    <p>Received Digital collapses all three current steps into a single action at the workstation. The moment a letter is imaged, it is timestamped, the recipient is auto-assigned using AI-powered name matching, and it is routed to the correct category — with no additional keystrokes. Name variations and exceptions are resolved once; the system learns permanently and never asks the same question twice.</p>
+
+    <div class="table-wrap" style="margin-top:24px;">
+      <table class="compare-table">
+        <thead><tr><th>Current State</th><th>With Received Digital</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="col-before">3 manual steps per letter · ~3M+ keystrokes/year</td>
+            <td class="col-after">1 image capture — receive, timestamp, route, notify</td>
+          </tr>
+          <tr>
+            <td class="col-before">Dual-database lookup every time (Qtrak + Excel)</td>
+            <td class="col-after">AI auto-assigns; learns permanently from every decision</td>
+          </tr>
+          <tr>
+            <td class="col-before">No proof of delivery for any letter</td>
+            <td class="col-after">Full image-based chain of custody, timestamped and searchable</td>
+          </tr>
+          <tr>
+            <td class="col-before">Financial docs, legal docs — no audit trail</td>
+            <td class="col-after">Instant lookup; defensible record for every piece</td>
+          </tr>
+          <tr>
+            <td class="col-before">Reporting requires queuing in Qtrak; sometimes days</td>
+            <td class="col-after">Real-time dashboard; any date range, on demand</td>
+          </tr>
+          <tr>
+            <td class="col-before">Stamp machine step adds zero digital value</td>
+            <td class="col-after">Image capture timestamps automatically at induction</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <div class="callout-icon">💡</div>
+      <p><strong>Implementation takes one day</strong> after the purchase order is issued. This proposal is scoped to letter mail only — GCU's most urgent operational need. Packages can be unified onto the same platform at any point after go-live with no retraining and no new vendor relationship.</p>
+    </div>
+
+    <h3 style="margin-top:32px;">Immediate Next Steps</h3>
+    <ol class="steps-list">
+      <li class="step-item">
+        <div class="step-num">1</div>
+        <div><div class="step-title">Confirm Investment</div><div class="step-body">Validate the $22,900 annual subscription and confirm GCU-specific student worker labor rates.</div></div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">2</div>
+        <div><div class="step-title">Validate Workflow Fit</div><div class="step-body">Final confirmation of three-step workflow replacement based on on-site visit documentation.</div></div>
+      </li>
+      <li class="step-item">
+        <div class="step-num">3</div>
+        <div><div class="step-title">Target May 1 Implementation</div><div class="step-body">One day after purchase order is issued — before peak fall enrollment processing begins.</div></div>
+      </li>
+    </ol>
+  </section>
+
+  <hr class="divider">
+
+  <!-- DEEP ANALYSIS -->
+  <section id="analysis">
+    <div class="section-label">Deep Value Analysis</div>
+    <h2>Current State · Letter Mail Workflow</h2>
+    <p>Based on the on-site visit (March 12, 2026) and pre-visit discovery call with Bob Shelt and Stephanie Salas. All volume figures sourced directly from Bob and Stephanie unless noted as estimated.</p>
+
+    <h3>Baseline Data & Assumptions</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Variable</th><th>Value</th><th>Source</th></tr></thead>
+        <tbody>
+          <tr><td>Average daily letter mail volume</td><td class="td-num">~500 pieces</td><td>Bob & Stephanie</td></tr>
+          <tr><td>Total annual letter volume</td><td class="td-num">130,000 pieces</td><td>Bob & Stephanie</td></tr>
+          <tr><td>Current processing time per letter</td><td class="td-num">~60 seconds (best case)</td><td>Confirmed on-site visit</td></tr>
+          <tr><td>Target processing time (Received Digital)</td><td class="td-num">~5 seconds</td><td>Image-capture workflow</td></tr>
+          <tr><td>Full-time mail center staff</td><td class="td-num">3 FTE</td><td>Bob & Stephanie</td></tr>
+          <tr><td>Student workers</td><td class="td-num">~60</td><td>Bob & Stephanie</td></tr>
+          <tr><td>Student worker hourly rate</td><td class="td-num">$12.00/hr</td><td>Estimated — GCU to confirm</td></tr>
+          <tr><td>FTE blended hourly rate (burdened)</td><td class="td-num">$35.00/hr</td><td>Estimated (~1.35× base)</td></tr>
+          <tr><td>Current annual Qtrak cost (packages only)</td><td class="td-num">~$40,000</td><td>Bob Shelt — confirmed</td></tr>
+          <tr class="row-total"><td>Received Digital annual subscription</td><td class="td-num">$22,900</td><td>Letter mail scope</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:32px;">Processing Efficiency Savings</h3>
+    <p>The current three-step workflow takes approximately <strong>60 seconds per letter</strong> at the workstation — this is the best-case observed on-site, not an average. The dual database lookup across Qtrak and the flat-file Excel spreadsheet is the dominant driver: the worker must open both systems, type the name in Qtrak, copy the student number, paste it into the Excel find function, retrieve the mailbox number, and hand-write it on the piece — before the letter ever moves.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Scenario</th><th>Seconds/Letter</th><th>Annual Hours (Current)</th><th>Annual Hours (Future)</th><th>Annual Savings</th></tr></thead>
+        <tbody>
+          <tr><td>Conservative</td><td class="td-num">50s → 5s</td><td class="td-num">1,806 hrs</td><td class="td-num">181 hrs</td><td class="td-num">$19,500/yr</td></tr>
+          <tr><td>Realistic</td><td class="td-num">60s → 5s</td><td class="td-num">2,167 hrs</td><td class="td-num">181 hrs</td><td class="td-num">$23,833/yr</td></tr>
+          <tr><td>Optimistic</td><td class="td-num">75s → 3s</td><td class="td-num">2,708 hrs</td><td class="td-num">108 hrs</td><td class="td-num">$31,200/yr</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout purple">
+      <div class="callout-icon">⏱️</div>
+      <p><strong>~1,986 hours recovered annually</strong> (realistic scenario) — nearly a full FTE-equivalent of student worker capacity redirected to package fulfillment, route staging, exception handling, or a meaningful reduction in peak-period staffing hours.</p>
+    </div>
+
+    <h3 style="margin-top:32px;">The Keystroke Tax</h3>
+    <p>Letter mail processing requires dual-database entry for every single piece. A comparable institution calculated 6.5 million keystrokes per year from a roughly equivalent workflow.</p>
+
+    <div class="keystroke-box">
+      <div class="ks-card">
+        <div class="ks-value">~1.8M</div>
+        <div class="ks-label">Keystrokes / Year (Current)</div>
+      </div>
+      <div class="ks-card">
+        <div class="ks-value">~130K</div>
+        <div class="ks-label">Keystrokes / Year (Future)</div>
+      </div>
+      <div class="ks-card light">
+        <div class="ks-value">~93%</div>
+        <div class="ks-label">Keystroke Reduction</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:32px;">Exception & Inquiry Handling Savings</h3>
+    <p>GCU-specific pain points from discovery: students with identical names in the same building, nicknames and abbreviations, international students using Americanized names not matching the database, and historical recipients who have left GCU. Received Digital's persistent learning model means once a decision is made, it is captured permanently — the second time that name variant appears, it is automatically routed correctly with zero staff investigation.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Variable</th><th>Conservative</th><th>Realistic</th><th>Optimistic</th></tr></thead>
+        <tbody>
+          <tr><td>Exception/inquiry rate</td><td class="td-num">1.5%</td><td class="td-num">1.0%</td><td class="td-num">0.7%</td></tr>
+          <tr><td>Annual exceptions (130,000 letters)</td><td class="td-num">1,950</td><td class="td-num">1,300</td><td class="td-num">910</td></tr>
+          <tr><td>Current annual exception cost</td><td class="td-num">$2,275</td><td class="td-num">$1,138</td><td class="td-num">$530</td></tr>
+          <tr><td>Future annual exception cost</td><td class="td-num">~$455</td><td class="td-num">~$228</td><td class="td-num">~$106</td></tr>
+          <tr class="row-total"><td>Annual exception-handling savings</td><td class="td-num">~$1,820</td><td class="td-num">~$910</td><td class="td-num">~$424</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:32px;">Stamp Machine Elimination</h3>
+    <p>The date/time stamp machine represents a discrete piece of equipment with its own maintenance footprint, consumables, and — critically — a workflow step that adds zero digital value. Received Digital's image capture timestamps each letter automatically at induction, creating a defensible digital record without any additional step.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Cost Category</th><th>Estimated Annual Value</th></tr></thead>
+        <tbody>
+          <tr><td>Stamp machine maintenance/consumables</td><td class="td-num">$300–$600/year</td></tr>
+          <tr><td>Staff time at stamp machine (2–3 sec × 130,000 letters)</td><td class="td-num">$867–$1,300/year</td></tr>
+          <tr class="row-total"><td>Total stamp machine overhead eliminated</td><td class="td-num td-highlight">~$1,167–$1,900/year</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:32px;">Qualitative Impact — Beyond the Numbers</h3>
+    <div class="impact-grid">
+      <div class="impact-item">
+        <div class="impact-dot"></div>
+        <div>
+          <div class="impact-title">Chain of Custody Gap Closed</div>
+          <div class="impact-body">Financial docs, immigration paperwork, scholarship notifications — currently no image, no timestamp, no searchable audit trail. One image capture at induction closes this permanently.</div>
+        </div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-dot"></div>
+        <div>
+          <div class="impact-title">Blame Cycle Eliminated</div>
+          <div class="impact-body">Bob acknowledged the pattern directly: Mail Services becomes the default scapegoat for any unresolvable missing-item claim. Received Digital ends this with a complete timestamped record for every piece.</div>
+        </div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-dot"></div>
+        <div>
+          <div class="impact-title">Institutional Knowledge Preserved</div>
+          <div class="impact-body">Every name resolution, routing decision, and exception is captured permanently. Student worker turnover no longer resets the system's intelligence — it accumulates instead.</div>
+        </div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-dot"></div>
+        <div>
+          <div class="impact-title">Enrollment Scale Ready</div>
+          <div class="impact-body">GCU's current system gets harder to manage as enrollment grows. Received Digital's AI scales without proportional labor increases — each new student is one more record, not one more manual lookup.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- SCENARIOS -->
+  <section id="scenarios">
+    <div class="section-label">Financial Summary</div>
+    <h2>Three-Year Benefit Summary</h2>
+    <p>All figures for letter mail scope only. Annual subscription: $22,900. The scenarios vary processing time per letter — the single most material variable, confirmed on-site at 60 seconds best-case.</p>
+
+    <div class="table-wrap" style="margin-top:20px;">
+      <table>
+        <thead><tr><th>Benefit Category</th><th>Conservative</th><th>Realistic</th><th>Optimistic</th></tr></thead>
+        <tbody>
+          <tr><td>Processing efficiency savings</td><td class="td-num">$19,500</td><td class="td-num">$23,833</td><td class="td-num">$31,200</td></tr>
+          <tr><td>Exception/inquiry handling savings</td><td class="td-num">$1,820</td><td class="td-num">$910</td><td class="td-num">$424</td></tr>
+          <tr><td>Stamp machine overhead eliminated</td><td class="td-num">$970</td><td class="td-num">$1,289</td><td class="td-num">$1,608</td></tr>
+          <tr><td>Risk mitigation / investigation avoidance</td><td class="td-num">$1,820</td><td class="td-num">$2,600</td><td class="td-num">$3,640</td></tr>
+          <tr class="row-total"><td>Total Annual Benefit</td><td class="td-num">$24,110</td><td class="td-num td-highlight">$28,632</td><td class="td-num">$36,872</td></tr>
+          <tr><td>Annual Subscription</td><td class="td-num">($22,900)</td><td class="td-num">($22,900)</td><td class="td-num">($22,900)</td></tr>
+          <tr class="row-total"><td>Net Annual Value</td><td class="td-num">$1,210</td><td class="td-num td-highlight">$5,732</td><td class="td-num">$13,972</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="scenario-grid" style="margin-top:24px;">
+      <div class="scenario-card">
+        <span class="scenario-badge badge-conservative">Conservative</span>
+        <div class="scenario-rate">50s → 5s per letter</div>
+        <div class="scenario-metric">
+          <div class="scenario-metric-label">Annual Value</div>
+          <div class="scenario-metric-value">$24,110</div>
+        </div>
+        <div class="scenario-metric">
+          <div class="scenario-metric-label">Net Annual Value</div>
+          <div class="scenario-metric-value">$1,210</div>
+        </div>
+        <hr class="scenario-divider">
+        <div class="scenario-roi"><span>ROI</span><span>5%</span></div>
+        <div class="scenario-roi" style="margin-top:6px"><span>Payback</span><span>~11.4 months</span></div>
+      </div>
+
+      <div class="scenario-card realistic">
+        <span class="scenario-badge badge-realistic">Realistic ✦</span>
+        <div class="scenario-rate">60s → 5s per letter</div>
+        <div class="scenario-metric">
+          <div class="scenario-metric-label">Annual Value</div>
+          <div class="scenario-metric-value">$28,632</div>
+        </div>
+        <div class="scenario-metric">
+          <div class="scenario-metric-label">Net Annual Value</div>
+          <div class="scenario-metric-value">$5,732</div>
+        </div>
+        <hr class="scenario-divider">
+        <div class="scenario-roi"><span>ROI</span><span>25%</span></div>
+        <div class="scenario-roi" style="margin-top:6px"><span>Payback</span><span>~9.6 months</span></div>
+      </div>
+
+      <div class="scenario-card">
+        <span class="scenario-badge badge-optimistic">Optimistic</span>
+        <div class="scenario-rate">75s → 3s per letter</div>
+        <div class="scenario-metric">
+          <div class="scenario-metric-label">Annual Value</div>
+          <div class="scenario-metric-value">$36,872</div>
+        </div>
+        <div class="scenario-metric">
+          <div class="scenario-metric-label">Net Annual Value</div>
+          <div class="scenario-metric-value">$13,972</div>
+        </div>
+        <hr class="scenario-divider">
+        <div class="scenario-roi"><span>ROI</span><span>61%</span></div>
+        <div class="scenario-roi" style="margin-top:6px"><span>Payback</span><span>~7.5 months</span></div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:32px;">Three-Year Financial Model</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th>Conservative</th><th>Realistic</th><th>Optimistic</th></tr></thead>
+        <tbody>
+          <tr><td>Year 1</td><td class="td-num">$24,110</td><td class="td-num">$28,632</td><td class="td-num">$36,872</td></tr>
+          <tr><td>Year 2</td><td class="td-num">$24,110</td><td class="td-num">$28,632</td><td class="td-num">$36,872</td></tr>
+          <tr><td>Year 3</td><td class="td-num">$24,110</td><td class="td-num">$28,632</td><td class="td-num">$36,872</td></tr>
+          <tr class="row-total"><td>3-Year Total Benefit</td><td class="td-num">$72,330</td><td class="td-num td-highlight">$85,896</td><td class="td-num">$110,616</td></tr>
+          <tr><td>3-Year Total Investment</td><td class="td-num">($68,700)</td><td class="td-num">($68,700)</td><td class="td-num">($68,700)</td></tr>
+          <tr class="row-total"><td>3-Year Net Value</td><td class="td-num">$3,630</td><td class="td-num td-highlight">$17,196</td><td class="td-num">$41,916</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pull-quote" style="margin-top:24px;">
+      <p>"This is the best solution I've seen yet for letter mail."</p>
+      <cite>— Bob Shelt, Director of Facility Operations Support · Discovery Call</cite>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- UNIFICATION -->
+  <section id="unification">
+    <div class="section-label">Phase 2 Opportunity</div>
+    <h2>Package Unification — The Natural Next Step</h2>
+    <p>This analysis is scoped to letter mail only, which is GCU's primary and most urgent pain point. However, the bigger picture is worth framing clearly.</p>
+    <p>GCU is the single inbound delivery point for a campus of 15,000–19,000 resident students and approximately 30,000 faculty and staff — processing an estimated 130,000 letters and <strong>500,000 packages per year</strong> through a single mail center. Today, those two streams run on separate systems with separate workflows, separate training, and separate vendor relationships.</p>
+
+    <div class="unification-box">
+      <h3>Full Platform Unification</h3>
+      <h2>One system. Every piece. Every recipient.</h2>
+      <p>A fully unified Received Digital platform covering both letter mail and packages at GCU's confirmed volumes is estimated at $69,870 annually — a $29,870 increase over the current Qtrak spend, but delivering something Qtrak never has and never will: a single image-based system for every inbound piece, every audit trail, and real-time reporting on demand.</p>
+      <div class="unif-stats">
+        <div class="unif-stat">
+          <div class="unif-val">500K</div>
+          <div class="unif-lbl">Annual Packages</div>
+        </div>
+        <div class="unif-stat">
+          <div class="unif-val">$69,870</div>
+          <div class="unif-lbl">Unified Annual Cost</div>
+        </div>
+        <div class="unif-stat">
+          <div class="unif-val">$40K</div>
+          <div class="unif-lbl">Current Qtrak Spend</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-icon">🔗</div>
+      <p><strong>Institutions including UNLV have followed exactly this path</strong> — starting with letter mail and expanding to packages when the operational case was clear. The letter mail implementation is the foundation that makes everything else simpler. At any point after go-live, GCU can expand with no retraining, no new infrastructure, and no new vendor relationship.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ESTIMATE -->
+  <section id="estimate">
+    <div class="section-label">Official Estimate</div>
+    <h2>Investment</h2>
+
+    <div class="investment-box">
+      <div>
+        <div class="inv-label">Annual Subscription · Letter Mail</div>
+        <div class="inv-amount">$22,900</div>
+        <div class="inv-period">Per year · Net 30 · Up to 130,000 items</div>
+        <div class="inv-notes" style="margin-top:14px">Year-to-year agreement · Proactive usage monitoring · No surprises at renewal · One-day implementation</div>
+      </div>
+      <div class="inv-badge">
+        <div class="inv-badge-val">$0.18</div>
+        <div class="inv-badge-lbl">Per item overage</div>
+      </div>
+    </div>
+
+    <div class="estimate-box">
+      <div class="estimate-header">
+        <div>
+          <div class="est-title">Estimate-000248 · Digitalized Software</div>
+          <div class="est-number">EIN 92-1876726 · 4401 SE 8th Pl, Cape Coral, FL 33904</div>
+        </div>
+        <div class="est-dates">
+          Date: 03.18.2026<br>
+          Expires: 06.31.2026<br>
+          Terms: Net 30
+        </div>
+      </div>
+      <div class="estimate-body">
+        <table>
+          <thead><tr><th>Item & Description</th><th>Qty</th><th>Rate</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr><td>Received Digital Annual Subscription</td><td class="td-num">1</td><td class="td-num">$22,900.00</td><td class="td-num">$22,900.00</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="estimate-footer">
+        <div class="est-total-label">Total Due</div>
+        <div class="est-total-amount">$22,900.00</div>
+      </div>
+    </div>
+
+    <p style="font-size:13px; color:var(--ink-faint); margin-top:8px;">130,000 annual item capacity · Overages billed at $0.18/item · Includes unlimited user access, AI imaging & vision algorithms, real-time visibility & tracking, enterprise SSO, dedicated CSM, and "First Responder" priority support. Acceptance constitutes agreement to Terms of Service at digitalizedsoftware.com/software-and-services-agreement.</p>
+
+    <div class="callout" style="margin-top:20px;">
+      <div class="callout-icon">📦</div>
+      <p><strong>Bill To:</strong> 2530 W Colter St, Phoenix, Arizona 85017 &nbsp;·&nbsp; <strong>Ship To:</strong> Bob Shelt, 3300 W. Camelback Road, Building 5, Phoenix, Arizona 85017</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- REFERENCES -->
+  <section id="references">
+    <div class="section-label">References</div>
+    <h2>Customer References</h2>
+    <p>The following contacts have direct experience with Received Digital and are available to speak with your team.</p>
+
+    <div class="ref-grid">
+      <div class="ref-card">
+        <div class="ref-name">Don McCarty</div>
+        <div class="ref-title">Director, Postal and Passport Services<br>East Tennessee State University</div>
+        <div class="ref-contact">
+          Office: 423-439-6895 · Cell: 423-833-7734 (text preferred)<br>
+          <a href="mailto:MCCARTYDL@mail.etsu.edu">MCCARTYDL@mail.etsu.edu</a>
+        </div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-name">Colin Tewey</div>
+        <div class="ref-title">Director, Delivery Services<br>University of Nevada, Las Vegas</div>
+        <div class="ref-contact">
+          Office: 702-895-1447 · Cell: 443-980-9397<br>
+          <a href="mailto:colin.tewey@unlv.edu">colin.tewey@unlv.edu</a>
+        </div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-name">Kenneth Greene</div>
+        <div class="ref-title">Director, Mail Services<br>College of Charleston, SC 29424</div>
+        <div class="ref-contact">
+          Office: 843-953-6676 · Fax: 843-953-4946<br>
+          <a href="mailto:greenek@cofc.edu">greenek@cofc.edu</a>
+        </div>
+      </div>
+      <div class="ref-card" style="background: var(--accent-light); border-color: var(--accent-mid);">
+        <div class="ref-name" style="color:var(--accent);">UNLV — The GCU Path</div>
+        <div class="ref-title" style="color:var(--accent-mid);">University of Nevada, Las Vegas followed the same journey — letter mail first, packages unified after go-live. Colin Tewey can speak directly to that transition.</div>
+        <div class="ref-contact"><a href="mailto:colin.tewey@unlv.edu" style="color:var(--accent-mid);">colin.tewey@unlv.edu</a></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- RESOURCES -->
+  <section id="resources">
+    <div class="section-label">Resources</div>
+    <h2>Supporting Materials</h2>
+
+    <ul class="resource-list">
+      <li class="resource-item">
+        <span class="resource-icon">🎥</span>
+        <div>
+          <div class="resource-link" style="font-size:14px; font-weight:500; color:var(--accent-mid);">February 5, 2026 Discussion & Demo Recording</div>
+          <div class="resource-meta">Attendees: Bob Shelt, Stephanie Salas · Jason Donnay · On-site visit: March 12, 2026</div>
+        </div>
+      </li>
+      <li class="resource-item">
+        <span class="resource-icon">🔒</span>
+        <div>
+          <a class="resource-link" href="https://digitalizedsoftware.com/security-practices/" target="_blank">Security Practices</a>
+          <div class="resource-meta">Digitalized Software · SOC 2 Type 2 Certified</div>
+        </div>
+      </li>
+      <li class="resource-item">
+        <span class="resource-icon">📄</span>
+        <div>
+          <a class="resource-link" href="https://digitalizedsoftware.com/software-and-services-agreement/" target="_blank">Software and Services Agreement</a>
+          <div class="resource-meta">Digitalized Software</div>
+        </div>
+      </li>
+      <li class="resource-item">
+        <span class="resource-icon">📋</span>
+        <div>
+          <a class="resource-link" href="https://digitalizedsoftware.com/service-level-agreement/" target="_blank">Service Level Agreement</a>
+          <div class="resource-meta">Digitalized Software</div>
+        </div>
+      </li>
+      <li class="resource-item">
+        <span class="resource-icon">⚙️</span>
+        <div>
+          <a class="resource-link" href="https://receiveddigital.com/how-it-works/#how-it-works" target="_blank">How Received Digital Works</a>
+          <div class="resource-meta">receiveddigital.com</div>
+        </div>
+      </li>
+      <li class="resource-item">
+        <span class="resource-icon">📰</span>
+        <div>
+          <a class="resource-link" href="https://receiveddigital.com/blog/?e-filter-5d21496-category=case-study" target="_blank">Customer Case Studies</a>
+          <div class="resource-meta">receiveddigital.com — including UNLV letter-to-package expansion</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <strong>Digitalized Software, Inc.</strong> · Prepared by Jason Donnay, VP of Sales<br>
+  <a href="mailto:jdonnay@digitalizedsoftware.com" style="color:rgba(255,255,255,0.4); text-decoration:none;">jdonnay@digitalizedsoftware.com</a> · 320-296-4232 · March 18, 2026<br>
+  <span style="margin-top:8px; display:block; font-size:11px;">All financial figures directional pending confirmation of GCU-specific labor rates.</span>
+</footer>
+
+</body>
+</html>
