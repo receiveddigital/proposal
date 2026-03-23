@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Received Digital — University of Lynchburg Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1117;
+    --ink-muted: #4a4d5a;
+    --ink-faint: #9097a8;
+    --bg: #fafaf8;
+    --bg-card: #ffffff;
+    --bg-tint: #f2f1ee;
+    --accent: #8b1a1a;
+    --accent-mid: #b83232;
+    --accent-light: #fdf0f0;
+    --gold: #8b6914;
+    --gold-light: #fdf8ee;
+    --gold-border: #d4af37;
+    --green: #1a5c3a;
+    --green-light: #eaf5ef;
+    --border: #e2e0db;
+    --shadow-sm: 0 2px 8px rgba(15,17,23,0.06);
+    --shadow-md: 0 8px 32px rgba(15,17,23,0.10);
+    --shadow-lg: 0 24px 64px rgba(15,17,23,0.12);
+    --r: 4px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,250,248,0.93);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 12px; }
+  .nav-brand img { height: 28px; width: auto; }
+  .nav-brand-divider { width: 1px; height: 20px; background: var(--border); }
+  .nav-brand-text {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  /* ─── HERO LOGOS ─── */
+  .hero-logos { display: flex; align-items: center; gap: 20px; margin-bottom: 28px; }
+  .hero-logos img { height: 44px; width: auto; }
+  .hero-logos-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.25); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    font-size: 12px; font-weight: 500;
+    color: var(--ink-muted); text-decoration: none;
+    letter-spacing: 0.04em; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ─── HERO ─── */
+  .hero {
+    background: var(--accent);
+    color: #fff;
+    padding: 80px 40px 72px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 110% 110%, rgba(184,50,50,0.55) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 70% at -5% 60%, rgba(212,175,55,0.12) 0%, transparent 55%);
+  }
+  .hero-inner { max-width: 860px; margin: 0 auto; position: relative; }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 5vw, 56px);
+    font-weight: 700; line-height: 1.12;
+    letter-spacing: -0.02em; margin-bottom: 16px;
+  }
+  .hero h1 span { color: rgba(255,255,255,0.48); }
+  .hero-sub {
+    font-size: 16px; font-weight: 300;
+    color: rgba(255,255,255,0.72);
+    max-width: 580px; line-height: 1.65; margin-bottom: 40px;
+  }
+  .hero-meta { display: flex; gap: 32px; flex-wrap: wrap; }
+  .hero-meta-item { display: flex; flex-direction: column; gap: 3px; }
+  .hero-meta-label { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+  .hero-meta-value { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.88); }
+
+  /* ─── MAIN ─── */
+  main { max-width: 900px; margin: 0 auto; padding: 64px 40px 100px; }
+
+  section { margin-bottom: 72px; }
+  section:last-child { margin-bottom: 0; }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 24px;
+    padding-bottom: 10px; border-bottom: 1px solid var(--border);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 700;
+    letter-spacing: -0.02em; color: var(--ink); margin-bottom: 16px;
+  }
+  h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 12px;
+  }
+  p { color: var(--ink-muted); margin-bottom: 14px; }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--ink); }
+
+  /* ─── LETTER ─── */
+  .letter-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--r); padding: 40px 44px;
+    box-shadow: var(--shadow-sm);
+  }
+  .letter-card p { font-size: 15px; line-height: 1.78; }
+  .letter-sig { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); }
+  .letter-sig-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+  .letter-sig-title { font-size: 13px; color: var(--ink-faint); }
+  .letter-sig-contact { font-size: 13px; color: var(--accent-mid); margin-top: 6px; }
+
+  /* ─── KPI STRIP ─── */
+  .kpi-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 32px 0; }
+  .kpi-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--r); padding: 24px 18px; text-align: center;
+    box-shadow: var(--shadow-sm); transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .kpi-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+  .kpi-card.featured { background: var(--accent); border-color: transparent; }
+  .kpi-card.gold { background: var(--gold-light); border-color: var(--gold-border); }
+  .kpi-value { font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 6px; }
+  .kpi-card.featured .kpi-value { color: #fff; }
+  .kpi-card.gold .kpi-value { color: var(--gold); }
+  .kpi-label { font-size: 10px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); }
+  .kpi-card.featured .kpi-label { color: rgba(255,255,255,0.6); }
+  .kpi-card.gold .kpi-label { color: var(--gold); }
+  .kpi-sub { font-size: 11px; color: var(--ink-faint); margin-top: 4px; }
+  .kpi-card.featured .kpi-sub { color: rgba(255,255,255,0.5); }
+
+  /* ─── CALLOUT ─── */
+  .callout {
+    background: var(--gold-light); border: 1px solid #e8d48a;
+    border-radius: var(--r); padding: 18px 22px; margin: 20px 0;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .callout p { color: #6b5200; font-size: 14px; margin-bottom: 0; }
+  .callout strong { color: #4a3900; }
+  .callout.red { background: var(--accent-light); border-color: #e8aaaa; }
+  .callout.red p { color: #5a1010; }
+  .callout.red strong { color: #3a0808; }
+  .callout.green-c { background: var(--green-light); border-color: #a8d4bc; }
+  .callout.green-c p { color: #0e3d26; }
+  .callout.green-c strong { color: #0a2a1a; }
+
+  /* ─── TABLES ─── */
+  .table-wrap {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--r); overflow: hidden;
+    box-shadow: var(--shadow-sm); margin: 18px 0;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  thead tr { background: var(--accent); }
+  thead th {
+    padding: 12px 16px; text-align: left; font-weight: 600;
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+  }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--accent-light); }
+  tbody td { padding: 10px 16px; color: var(--ink-muted); font-size: 14px; }
+  tbody td:first-child { font-weight: 500; color: var(--ink); }
+  .td-num { font-family: 'DM Mono', monospace; font-size: 13px; }
+  .td-green { color: var(--green) !important; font-weight: 600; background: var(--green-light); }
+  .td-red { color: var(--accent) !important; background: var(--accent-light); }
+  tbody tr.row-total { background: var(--accent-light); }
+  tbody tr.row-total td { font-weight: 600; color: var(--accent) !important; border-top: 2px solid var(--accent); }
+  tbody tr.row-sub td { color: var(--ink-muted) !important; font-style: italic; font-weight: 400 !important; }
+
+  /* ─── SCENARIO CARDS ─── */
+  .scenario-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+  .scenario-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--r); padding: 24px 20px; box-shadow: var(--shadow-sm);
+  }
+  .scenario-card.realistic { border-color: var(--accent-mid); box-shadow: 0 4px 24px rgba(139,26,26,0.14); }
+  .scenario-badge {
+    display: inline-block; font-size: 10px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 2px; margin-bottom: 14px;
+  }
+  .badge-conservative { background: var(--bg-tint); color: var(--ink-faint); }
+  .badge-realistic { background: var(--accent); color: #fff; }
+  .badge-optimistic { background: var(--green-light); color: var(--green); }
+  .scenario-rate { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--ink-faint); margin-bottom: 16px; line-height: 1.5; }
+  .scenario-metric { margin-bottom: 10px; }
+  .scenario-metric-label { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; }
+  .scenario-metric-value { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--ink); line-height: 1.2; }
+  .scenario-card.realistic .scenario-metric-value { color: var(--accent); }
+  .scenario-divider { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+  .scenario-roi { font-size: 13px; font-weight: 600; color: var(--green); display: flex; justify-content: space-between; align-items: center; margin-top: 5px; }
+
+  /* ─── IMPACT GRID ─── */
+  .impact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 20px 0; }
+  .impact-item {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--r); padding: 20px 20px 20px 16px;
+    display: flex; gap: 14px; box-shadow: var(--shadow-sm);
+  }
+  .impact-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 8px; }
+  .impact-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 5px; }
+  .impact-body { font-size: 13px; color: var(--ink-muted); line-height: 1.6; }
+
+  /* ─── TIMELINE ─── */
+  .timeline { margin: 20px 0; }
+  .timeline-item {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 16px 0; border-bottom: 1px solid var(--border);
+  }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-dot {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .timeline-dot.gold-dot { background: var(--gold); }
+  .timeline-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink-faint); margin-bottom: 4px; }
+  .timeline-title { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+  .timeline-body { font-size: 13px; color: var(--ink-muted); }
+
+  /* ─── PULL QUOTE ─── */
+  .pull-quote {
+    border-left: 3px solid var(--accent); padding: 16px 24px; margin: 20px 0;
+    background: var(--accent-light); border-radius: 0 var(--r) var(--r) 0;
+  }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-size: 16px; font-style: italic; color: var(--accent); margin-bottom: 8px; line-height: 1.6; }
+  .pull-quote cite { font-size: 12px; color: var(--ink-faint); font-style: normal; }
+
+  /* ─── VALUE BOX ─── */
+  .value-box {
+    background: var(--accent); border-radius: var(--r);
+    padding: 36px 40px; display: grid; grid-template-columns: 1fr auto;
+    gap: 24px; align-items: center; margin: 24px 0; box-shadow: var(--shadow-md);
+  }
+  .vb-label { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+  .vb-amount { font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 700; color: #fff; line-height: 1; }
+  .vb-sub { font-size: 14px; color: rgba(255,255,255,0.55); margin-top: 6px; }
+  .vb-notes { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.7; }
+  .vb-badge { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 2px; padding: 14px 22px; text-align: center; }
+  .vb-badge-val { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #fff; }
+  .vb-badge-lbl { font-size: 11px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
+
+  /* ─── ESTIMATE BOX ─── */
+  .estimate-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; box-shadow: var(--shadow-sm); margin: 20px 0; }
+  .estimate-header { background: var(--bg-tint); padding: 20px 28px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-start; }
+  .est-title { font-size: 16px; font-weight: 600; color: var(--ink); }
+  .est-number { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
+  .est-dates { text-align: right; font-size: 12px; color: var(--ink-faint); line-height: 1.8; }
+  .estimate-body { padding: 0 28px; }
+  .estimate-footer { padding: 20px 28px; background: var(--bg-tint); border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .est-total-label { font-size: 13px; font-weight: 600; color: var(--ink-muted); }
+  .est-total-amount { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--accent); }
+
+  /* ─── REFS ─── */
+  .ref-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 20px 0; }
+  .ref-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r); padding: 18px 20px; box-shadow: var(--shadow-sm); }
+  .ref-name { font-weight: 600; color: var(--ink); margin-bottom: 2px; font-size: 14px; }
+  .ref-title { font-size: 12px; color: var(--ink-faint); margin-bottom: 10px; line-height: 1.4; }
+  .ref-contact { font-size: 12px; color: var(--accent-mid); }
+  .ref-contact a { color: inherit; text-decoration: none; }
+  .ref-contact a:hover { text-decoration: underline; }
+
+  /* ─── RESOURCES ─── */
+  .resource-list { list-style: none; }
+  .resource-item { padding: 12px 16px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--border); transition: background 0.15s; border-radius: var(--r); }
+  .resource-item:last-child { border-bottom: none; }
+  .resource-item:hover { background: var(--accent-light); }
+  .resource-icon { font-size: 16px; flex-shrink: 0; }
+  .resource-link { font-size: 14px; color: var(--accent-mid); text-decoration: none; font-weight: 500; }
+  .resource-link:hover { text-decoration: underline; }
+  .resource-meta { font-size: 12px; color: var(--ink-faint); margin-top: 1px; }
+
+  /* ─── DIVIDER ─── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+  /* ─── FOOTER ─── */
+  footer { background: var(--ink); color: rgba(255,255,255,0.5); text-align: center; padding: 32px 40px; font-size: 12px; }
+  footer strong { color: rgba(255,255,255,0.8); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-inner > * { animation: fadeUp 0.6s ease both; }
+  .hero-inner > *:nth-child(1) { animation-delay: 0.05s; }
+  .hero-inner > *:nth-child(2) { animation-delay: 0.15s; }
+  .hero-inner > *:nth-child(3) { animation-delay: 0.25s; }
+  .hero-inner > *:nth-child(4) { animation-delay: 0.35s; }
+
+  @media (max-width: 680px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 48px 24px; }
+    main { padding: 40px 24px 80px; }
+    .kpi-strip { grid-template-columns: repeat(2, 1fr); }
+    .scenario-grid, .impact-grid, .ref-grid { grid-template-columns: 1fr; }
+    .value-box { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <img src="https://receiveddigital.com/wp-content/uploads/2021/11/Received-Digital-Logo-Blue-on-Transparent.svg" alt="Received Digital">
+    <div class="nav-brand-divider"></div>
+    <span class="nav-brand-text">University of Lynchburg</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#letter">Letter</a></li>
+    <li><a href="#summary">Summary</a></li>
+    <li><a href="#analysis">Analysis</a></li>
+    <li><a href="#scenarios">Scenarios</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#estimate">Estimate</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-logos">
+      <img src="https://receiveddigital.com/wp-content/uploads/2021/11/Received-Digital-Logo-Blue-on-Transparent.svg" alt="Received Digital" style="filter: brightness(0) invert(1);">
+      <div class="hero-logos-divider"></div>
+      <img src="https://www.lynchburg.edu/wp-content/uploads/2025/01/UL_light-logo.png" alt="University of Lynchburg">
+    </div>
+    <div class="hero-eyebrow">Proposal · March 23, 2026 · Confidential</div>
+    <h1>36 Seconds Becomes <span>5.</span><br>77,000 Items. Zero Blind Spots.</h1>
+    <p class="hero-sub">Replacing Qtrak's two-step receive-and-route workflow and letter mail's complete tracking gap with a single image capture that timestamps, assigns, routes, and notifies — for every package and every letter.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Annual Investment</span>
+        <span class="hero-meta-value">$8,275 / year</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Net Incremental Cost</span>
+        <span class="hero-meta-value">$4,475 above Qtrak</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Realistic Net Benefit</span>
+        <span class="hero-meta-value">$14,993 / year</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Payback</span>
+        <span class="hero-meta-value">~5 months</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">Hardware Required</span>
+        <span class="hero-meta-value">None — existing devices</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- COVER LETTER -->
+  <section id="letter">
+    <div class="section-label">Cover Letter</div>
+    <div class="letter-card">
+      <p>Destin and Terry,</p>
+      <br>
+      <p>Thank you both for the time you took to walk us through what is actually happening in your mail room, and for your directness about where the current system falls short. What started as a conversation about replacing Qtrak has grown into something broader: a clear picture of a team managing packages and letter mail for an entire campus with tools that were never designed to do both jobs at once.</p>
+      <p>The attached value analysis puts specific numbers behind what you already described on the calls. Your staff manually scanning a barcode, typing a name, selecting from a list, then repeating the entire sequence again through a separate routing step — these are not complaints about the process. They are the process. And they work because of the people running them. But they leave no image record for letter mail, create no chain of custody for the letters moving through your facility each year, and give your team no way to answer a delivery inquiry with anything more than a manual search across two different websites.</p>
+      <p>Received Digital changes that. Every package and every letter — whether it belongs to a resident student, a faculty member ordering lab equipment, or a recipient whose nickname has never matched what is on the shipping label — is imaged, assigned, and tracked from the moment it arrives. The system reads the entire label automatically, routes the item to the correct recipient without a manual lookup, and sends a photo notification to the student so they know exactly what is waiting for them. The two-step receive-and-route process disappears entirely.</p>
+      <p>The financial case is straightforward. At an $8,275 annual investment — $4,475 more than you are currently spending on Qtrak — Received Digital generates $19,468 in documented operational value in the first year, a payback period of approximately five months, and a three-year net return of more than $46,000. That calculation is built on what you told us: the daily package volume, the letter mail tray counts, the time it takes to process each piece through two separate Qtrak steps, the problem package pile that builds up from mismatched names and missing mailbox numbers. Your team already has the iPhones and iPads the system runs on. We are ready to move as quickly as your process allows, and we will be with you every step of the way — through onboarding, through the fall rush, and well beyond.</p>
+
+      <div class="letter-sig">
+        <div class="letter-sig-name">Jason Donnay</div>
+        <div class="letter-sig-title">Vice President of Sales · Digitalized Software, Inc.</div>
+        <div class="letter-sig-contact"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="adc7c9c2c3c3ccd4edc9c4cac4d9ccc1c4d7c8c9dec2cbd9daccdfc883cec2c0">[email&#160;protected]</a> · 320-296-4232</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <section id="summary">
+    <div class="section-label">Executive Summary</div>
+    <p style="font-size:12px; color:var(--ink-faint); margin-bottom:20px; font-family:'DM Mono',monospace; letter-spacing:0.04em;">Prepared for: Michael Vaughn, AVP of Operations &nbsp;·&nbsp; Destin Tanner, Retail & Licensing Manager &nbsp;·&nbsp; Terry Hudson, Mail Services Supervisor</p>
+
+    <h2>The Situation</h2>
+    <p>University of Lynchburg processes approximately <strong>77,000 mail items per year</strong> — roughly 50,000 packages through Qtrak and 27,000 letters with zero tracking, zero chain of custody, and zero student notification. Qtrak's two-step receive-then-route workflow requires approximately <strong>36 seconds per package</strong> (18 seconds per step × 2 steps) and leaves the letter mail operation completely blind.</p>
+    <p>The result: staff investigation time for problem packages, a "deliver all" button that generates routing errors, dual-barcode SurePost confusion creating phantom records, and no defensible answer when a student or parent asks where their letter is.</p>
+
+    <div class="kpi-strip">
+      <div class="kpi-card featured">
+        <div class="kpi-value">434+</div>
+        <div class="kpi-label">Hours Freed / Year</div>
+        <div class="kpi-sub">Package processing alone</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">2.35×</div>
+        <div class="kpi-label">Return on Investment</div>
+        <div class="kpi-sub">Per dollar spent (realistic)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">$0.11</div>
+        <div class="kpi-label">Cost Per Item Tracked</div>
+        <div class="kpi-sub">77,325 items / year</div>
+      </div>
+      <div class="kpi-card gold">
+        <div class="kpi-value">$4,475</div>
+        <div class="kpi-label">Net Incremental Cost</div>
+        <div class="kpi-sub">Above current Qtrak spend</div>
+      </div>
+    </div>
+
+    <div class="callout green-c">
+      <div class="callout-icon">✅</div>
+      <p><strong>No hardware investment required.</strong> University of Lynchburg already has the iPhones and iPads Received Digital runs on. Optional document camera for letter mail efficiency: ~$90 on Amazon. Go-live target: July 1, 2026 — aligned with fiscal year start.</p>
+    </div>
+
+    <h2 style="margin-top:32px;">The Opportunity</h2>
+    <p>Received Digital replaces the fragmented, manual process with a single image-capture workflow — <strong>5 seconds per item, packages and letters both</strong> — one tap that automatically reads every label, reads all barcodes, assigns the item to the correct recipient, routes, and sends an image-based notification.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Scenario</th><th>Annual Gross Value</th><th>Annual Investment</th><th>Net Annual Benefit</th><th>Payback</th></tr></thead>
+        <tbody>
+          <tr><td>Conservative</td><td class="td-num">$15,155</td><td class="td-num">$8,275</td><td class="td-num">$10,680</td><td>~10 months</td></tr>
+          <tr class="row-total"><td>Realistic ✦</td><td class="td-num">$19,468</td><td class="td-num">$8,275</td><td class="td-num td-green">$14,993</td><td>~5 months</td></tr>
+          <tr><td>Optimistic</td><td class="td-num">$26,181</td><td class="td-num">$8,275</td><td class="td-num">$22,381</td><td>~4 months</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px; color:var(--ink-faint); margin-top:6px;">*Net benefit figures reflect elimination of ~$3,800 Qtrak cost (no longer needed).</p>
+
+    <div class="value-box" style="margin-top:32px;">
+      <div>
+        <div class="vb-label">Realistic Scenario · Annual Net Benefit</div>
+        <div class="vb-amount">$14,993</div>
+        <div class="vb-sub">Above the incremental $4,475 spend over Qtrak</div>
+        <div class="vb-notes" style="margin-top:14px;">
+          $2.35 returned for every $1.00 invested &nbsp;·&nbsp; 135% ROI &nbsp;·&nbsp; ~5.1 month payback<br>
+          Full platform: packages + letters · all users · dedicated CSM · ongoing support
+        </div>
+      </div>
+      <div class="vb-badge">
+        <div class="vb-badge-val">135%</div>
+        <div class="vb-badge-lbl">Simple ROI</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- DEEP ANALYSIS -->
+  <section id="analysis">
+    <div class="section-label">Deep Value Analysis</div>
+    <h2>Current State Baseline</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Packages</th><th>Letter Mail</th><th>Total</th></tr></thead>
+        <tbody>
+          <tr><td>Annual Volume</td><td class="td-num">~50,425</td><td class="td-num">~26,900</td><td class="td-num">~77,325</td></tr>
+          <tr><td>Current tracking system</td><td>Qtrak</td><td class="td-red">None</td><td>—</td></tr>
+          <tr class="row-total"><td>Annual system cost</td><td class="td-num">$3,800</td><td class="td-num">$0</td><td class="td-num">$3,800</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px; color:var(--ink-faint); margin-top:6px;">Letter mail volume estimated by Destin Tanner from typical mail tray counts (~300 pieces/delivery, ~2 deliveries/week). Staff rate used: $20.00/hr fully burdened.</p>
+
+    <h3 style="margin-top:32px;">Package Processing: The Two-Step Problem</h3>
+    <p>Qtrak requires two separate steps to process every package — a receive step and a route step. Each involves scanning a barcode, manually typing the first several letters of a name, and selecting the correct recipient from a list. At approximately 18 seconds per step, the full two-step workflow averages <strong>36 seconds per package.</strong></p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Current (Qtrak)</th><th>With Received Digital</th><th>Savings</th></tr></thead>
+        <tbody>
+          <tr><td>Time per package — receive step</td><td class="td-num">18 seconds</td><td class="td-num">—</td><td>—</td></tr>
+          <tr><td>Time per package — route step</td><td class="td-num">18 seconds</td><td class="td-num">—</td><td>—</td></tr>
+          <tr class="row-total"><td>Total time per package</td><td class="td-num">36 seconds</td><td class="td-num">5 seconds</td><td class="td-num td-green">31 seconds saved</td></tr>
+          <tr><td>Annual packages processed</td><td class="td-num">50,425</td><td class="td-num">50,425</td><td>—</td></tr>
+          <tr><td>Total annual processing hours</td><td class="td-num">504.3 hrs</td><td class="td-num">70.0 hrs</td><td class="td-num td-green">434.3 hrs saved</td></tr>
+          <tr class="row-total"><td>Dollar value @ $20/hr</td><td class="td-num">$10,085</td><td class="td-num">$1,400</td><td class="td-num td-green">$8,685 saved</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout red">
+      <div class="callout-icon">📦</div>
+      <p><strong>434 hours freed annually</strong> directly supports Destin's goal of reducing student worker headcount — over 434 hours at intake can be redeployed to package fulfillment, route staging, or eliminated from the schedule entirely.</p>
+    </div>
+
+    <h3 style="margin-top:32px;">Letter Mail: Zero to Full Accountability</h3>
+    <p>Letter mail currently receives <strong>zero tracking</strong> — staff sort directly into mailboxes with no imaging, no notification, and no chain of custody. With Received Digital, letters are imaged via document camera (foot pedal workflow) at approximately 5 seconds per piece.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Current (No System)</th><th>With Received Digital</th></tr></thead>
+        <tbody>
+          <tr><td>Time per letter</td><td>~3 sec (sort only, no tracking)</td><td>~5 sec (image + auto-assign)</td></tr>
+          <tr><td>Annual letters</td><td class="td-num">26,900</td><td class="td-num">26,900</td></tr>
+          <tr><td>Additional time added</td><td>—</td><td>~15 hours/year (modest)</td></tr>
+          <tr class="row-total"><td>Chain of custody</td><td class="td-red">Zero — none exists</td><td class="td-green">Full audit trail, every piece</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px; color:var(--ink-faint); margin-top:6px;">The modest additional time for letter mail is offset by near-elimination of inquiry handling, problem package research, and "deliver all" button errors — quantified below.</p>
+
+    <h3 style="margin-top:32px;">Incident & Investigation Cost Savings</h3>
+    <p>Using a conservative 0.3% incident rate confirmed as reasonable by Destin and Terry, applied to annual volumes:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Category</th><th>Annual Volume</th><th>Incident Rate</th><th>Est. Annual Incidents</th></tr></thead>
+        <tbody>
+          <tr><td>Package incidents</td><td class="td-num">50,425</td><td class="td-num">0.30%</td><td class="td-num">151</td></tr>
+          <tr><td>Letter mail incidents</td><td class="td-num">26,900</td><td class="td-num">0.30%</td><td class="td-num">81</td></tr>
+          <tr class="row-total"><td>Total</td><td class="td-num">77,325</td><td>—</td><td class="td-num">232</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Category</th><th>Incidents</th><th>Cost/Incident</th><th>Annual Investigation Cost</th></tr></thead>
+        <tbody>
+          <tr><td>Packages</td><td class="td-num">151</td><td class="td-num">$20 (60 min @ $20/hr)</td><td class="td-num">$3,020</td></tr>
+          <tr><td>Letter mail</td><td class="td-num">81</td><td class="td-num">$30 (90 min @ $20/hr)</td><td class="td-num">$2,430</td></tr>
+          <tr class="row-total"><td>Total (conservative)</td><td class="td-num">232</td><td>—</td><td class="td-num">$5,450</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px; color:var(--ink-faint);">Letter mail investigation time higher (90 min vs. 60 min) due to zero tracking baseline — staff must manually search with no system reference. Package item value at risk: 151 incidents × 8% unrecoverable × $85 avg. value = <strong>$1,020/year</strong>.</p>
+
+    <h3 style="margin-top:32px;">Beyond the Numbers — Non-Quantified Value</h3>
+    <div class="impact-grid">
+      <div class="impact-item">
+        <div class="impact-dot"></div>
+        <div>
+          <div class="impact-title">"Deliver All" Error Eliminated</div>
+          <div class="impact-body">Destin specifically cited Qtrak's "deliver all" button as a source of operational errors — students accidentally triggering mass confirmation or staff inadvertently marking all items delivered. This error class is eliminated entirely.</div>
+        </div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-dot"></div>
+        <div>
+          <div class="impact-title">SurePost Phantom Duplicates Gone</div>
+          <div class="impact-body">SurePost packages carry both a FedEx and USPS barcode. Scanning both in Qtrak creates duplicate phantom records. Received Digital reads and associates all barcodes to a single item record — no duplicates, no system noise.</div>
+        </div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-dot"></div>
+        <div>
+          <div class="impact-title">Campus Delivery Integration</div>
+          <div class="impact-body">University of Lynchburg's active campus delivery subscription program (Square POS) can embed the Square delivery link directly in Received Digital item notifications — reducing manual follow-up steps for staff.</div>
+        </div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-dot"></div>
+        <div>
+          <div class="impact-title">Locker Transition Ready</div>
+          <div class="impact-body">Destin noted interest in transitioning to a locker system. Received Digital's multi-barcode capture resolves the common locker integration failure point — premature barcode scan capturing the wrong code — making that eventual transition cleaner.</div>
+        </div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-dot"></div>
+        <div>
+          <div class="impact-title">~70% Pickup Rate Improvement</div>
+          <div class="impact-body">Image-rich notifications — students see a photo of their actual item — have driven pickup rate increases of approximately 70% at comparable institutions. Less congestion, less aged inventory, fewer overflowing mailboxes requiring manual outreach.</div>
+        </div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-dot"></div>
+        <div>
+          <div class="impact-title">Institutional Risk Eliminated</div>
+          <div class="impact-body">Donor checks, financial aid documents, driver's licenses, SSN cards, health services correspondence — currently zero chain of custody. Full imaging + IMb barcode reading + AI assignment means the "we can't prove we received it" problem is eliminated permanently.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- SCENARIOS -->
+  <section id="scenarios">
+    <div class="section-label">Financial Summary</div>
+    <h2>Three Scenarios</h2>
+    <p>All three scenarios use the same package processing efficiency savings ($8,685). They vary by incident rate and lost item rate.</p>
+
+    <div class="scenario-grid">
+      <div class="scenario-card">
+        <span class="scenario-badge badge-conservative">Conservative</span>
+        <div class="scenario-rate">0.3% incident rate · 8% lost item rate<br>Package efficiency savings only</div>
+        <div class="scenario-metric">
+          <div class="scenario-metric-label">Gross Annual Value</div>
+          <div class="scenario-metric-value">$15,155</div>
+        </div>
+        <div class="scenario-metric">
+          <div class="scenario-metric-label">Net Annual Benefit</div>
+          <div class="scenario-metric-value">$10,680</div>
+        </div>
+        <hr class="scenario-divider">
+        <div class="scenario-roi"><span>ROI</span><span>29%</span></div>
+        <div class="scenario-roi"><span>Payback</span><span>~10 months</span></div>
+      </div>
+
+      <div class="scenario-card realistic">
+        <span class="scenario-badge badge-realistic">Realistic ✦</span>
+        <div class="scenario-rate">0.5% incident rate · 8% lost item rate<br>Full efficiency savings</div>
+        <div class="scenario-metric">
+          <div class="scenario-metric-label">Gross Annual Value</div>
+          <div class="scenario-metric-value">$19,468</div>
+        </div>
+        <div class="scenario-metric">
+          <div class="scenario-metric-label">Net Annual Benefit</div>
+          <div class="scenario-metric-value">$14,993</div>
+        </div>
+        <hr class="scenario-divider">
+        <div class="scenario-roi"><span>ROI</span><span>135%</span></div>
+        <div class="scenario-roi"><span>Payback</span><span>~5.1 months</span></div>
+      </div>
+
+      <div class="scenario-card">
+        <span class="scenario-badge badge-optimistic">Optimistic</span>
+        <div class="scenario-rate">0.7% incident rate · 10% lost item rate<br>Full efficiency + student worker reduction</div>
+        <div class="scenario-metric">
+          <div class="scenario-metric-label">Gross Annual Value</div>
+          <div class="scenario-metric-value">$26,181</div>
+        </div>
+        <div class="scenario-metric">
+          <div class="scenario-metric-label">Net Annual Benefit</div>
+          <div class="scenario-metric-value">$22,381</div>
+        </div>
+        <hr class="scenario-divider">
+        <div class="scenario-roi"><span>ROI</span><span>170%</span></div>
+        <div class="scenario-roi"><span>Payback</span><span>~4 months</span></div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:32px;">Three-Year Financial Summary — Realistic Scenario</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>3-Year Total</th></tr></thead>
+        <tbody>
+          <tr><td>Gross Operational Value</td><td class="td-num">$19,468</td><td class="td-num">$19,857</td><td class="td-num">$20,254</td><td class="td-num">$59,579</td></tr>
+          <tr><td>Investment (Received Digital)</td><td class="td-num">$8,275</td><td class="td-num">$8,275</td><td class="td-num">$8,275</td><td class="td-num">$24,825</td></tr>
+          <tr><td>Qtrak Savings (no longer needed)</td><td class="td-num">$3,800</td><td class="td-num">$3,800</td><td class="td-num">$3,800</td><td class="td-num">$11,400</td></tr>
+          <tr class="row-total"><td>Net Annual Benefit</td><td class="td-num td-green">$14,993</td><td class="td-num td-green">$15,382</td><td class="td-num td-green">$15,779</td><td class="td-num td-green">$46,154</td></tr>
+          <tr><td>Cumulative Net Benefit</td><td class="td-num">$14,993</td><td class="td-num">$30,375</td><td class="td-num">$46,154</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:12px; color:var(--ink-faint); margin-top:6px;">Year 2 and 3 reflect modest 2% volume growth assumption.</p>
+
+    <div class="pull-quote" style="margin-top:28px;">
+      <p>"The numbers support the transition. The timing — July 1 aligned with the new fiscal year — is right. The platform is ready."</p>
+      <cite>— Received Digital Value Analysis, March 2026</cite>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- TIMELINE -->
+  <section id="timeline">
+    <div class="section-label">Implementation Plan</div>
+    <h2>Recommended Timeline</h2>
+    <p>Aligned to University of Lynchburg's fiscal year start and designed to have the system fully live before fall rush begins.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">1</div>
+        <div>
+          <div class="timeline-date">May 2026</div>
+          <div class="timeline-title">IT Security Review</div>
+          <div class="timeline-body">SOC 2 Type 2 documentation available under NDA. Contact: Brian Hudson, CIO. Full security review package provided by Digitalized Software.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">2</div>
+        <div>
+          <div class="timeline-date">June 2026</div>
+          <div class="timeline-title">Contract Execution & Onboarding</div>
+          <div class="timeline-body">Dedicated onboarding session with Maxwell (CSM). Upload student/faculty CSV file. Configure automations and notification templates. Staff training completed.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot gold-dot">3</div>
+        <div>
+          <div class="timeline-date">July 1, 2026</div>
+          <div class="timeline-title">Go-Live — Fiscal Year Start</div>
+          <div class="timeline-body">Full volume processing begins. Staff trained. Qtrak retired. Both packages and letters tracked from day one. Existing iPhones and iPads operational immediately.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">∞</div>
+        <div>
+          <div class="timeline-date">Ongoing</div>
+          <div class="timeline-title">Proactive Support</div>
+          <div class="timeline-body">Maxwell monitors usage proactively. &lt;20 min response time target for support tickets. Jason Donnay available for escalations. No surprises at renewal.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-icon">📱</div>
+      <p><strong>No hardware investment required.</strong> University of Lynchburg already has compatible iPhones and iPads. Optional: document camera for letter mail foot-pedal workflow efficiency — approximately <strong>$90 on Amazon</strong>.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ESTIMATE -->
+  <section id="estimate">
+    <div class="section-label">Official Estimate</div>
+    <h2>Investment</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Investment Item</th><th>Amount</th></tr></thead>
+        <tbody>
+          <tr><td>Annual subscription (discounted higher education rate)</td><td class="td-num">$8,275</td></tr>
+          <tr><td>Hardware required</td><td>None — existing iPhones/iPads fully compatible</td></tr>
+          <tr><td>Optional document camera (letter mail efficiency)</td><td>~$90, Amazon</td></tr>
+          <tr><td>Replaces Qtrak annual cost</td><td class="td-num">~$3,800</td></tr>
+          <tr class="row-total"><td>Net incremental cost</td><td class="td-num">$4,475/year</td></tr>
+          <tr class="row-sub"><td colspan="2">Includes: Full platform (packages + letters) · all users · onboarding · dedicated CSM · ongoing support</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="estimate-box">
+      <div class="estimate-header">
+        <div>
+          <div class="est-title">EST-000252 · Digitalized Software</div>
+          <div class="est-number">EIN 92-1876726 · 4401 SE 8th Pl, Cape Coral, FL 33904</div>
+        </div>
+        <div class="est-dates">
+          Date: 03.23.2026<br>
+          Expires: 07.01.2026<br>
+          Terms: Net 30
+        </div>
+      </div>
+      <div class="estimate-body">
+        <table>
+          <thead><tr><th>Item & Description</th><th>Qty</th><th>Rate</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Received Digital Annual Subscription<br><span style="font-size:12px; color:var(--ink-faint); font-weight:400;">Up to 80,000 items processed annually</span></td>
+              <td class="td-num">1</td>
+              <td class="td-num">$8,275.00</td>
+              <td class="td-num">$8,275.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="estimate-footer">
+        <div>
+          <div class="est-total-label">Total Due</div>
+          <div style="font-size:12px; color:var(--ink-faint); margin-top:2px;">Bill To: 1501 Lakeside Drive, Lynchburg, Virginia 24501</div>
+        </div>
+        <div class="est-total-amount">$8,275.00</div>
+      </div>
+    </div>
+
+    <p style="font-size:13px; color:var(--ink-faint); margin-top:8px;">80,000 annual item capacity · Overages billed at $0.10/item · Includes imaging & vision algorithms, real-time visibility & tracking, unlimited user access, virtual mailbox platform, enterprise SSO, 2FA & audit trails, dedicated CSM, priority support. Acceptance constitutes agreement to Terms of Service at digitalizedsoftware.com/software-and-services-agreement.</p>
+  </section>
+
+  <hr class="divider">
+
+  <!-- REFERENCES -->
+  <section id="references">
+    <div class="section-label">References</div>
+    <h2>Customer References</h2>
+    <p>The following contacts have direct experience with Received Digital and are available to speak with your team.</p>
+
+    <div class="ref-grid">
+      <div class="ref-card">
+        <div class="ref-name">Colin Tewey</div>
+        <div class="ref-title">Director, Delivery Services<br>University of Nevada, Las Vegas</div>
+        <div class="ref-contact">
+          Office: 702-895-1447 · Cell: 443-980-9397<br>
+          <a href="/cdn-cgi/l/email-protection#70131f1c191e5e041507150930051e1c065e151405"><span class="__cf_email__" data-cfemail="4d2e222124236339283a28340d3823213b63282938">[email&#160;protected]</span></a>
+        </div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-name">Don McCarty</div>
+        <div class="ref-title">Director, Postal and Passport Services<br>East Tennessee State University</div>
+        <div class="ref-contact">
+          Office: 423-439-6895 · Cell: 423-833-7734 (text preferred)<br>
+          <a href="/cdn-cgi/l/email-protection#7a3739393b282e233e363a171b1316541f0e090f541f1e0f"><span class="__cf_email__" data-cfemail="93ded0d0d2c1c7cad7dfd3fef2faffbdf6e7e0e6bdf6f7e6">[email&#160;protected]</span></a>
+        </div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-name">Kenneth Greene</div>
+        <div class="ref-title">Director, Mail Services<br>College of Charleston</div>
+        <div class="ref-contact">
+          Office: 843-953-6676<br>
+          <a href="/cdn-cgi/l/email-protection#c3a4b1a6a6ada6a883a0aca5a0eda6a7b6"><span class="__cf_email__" data-cfemail="0a6d786f6f646f614a69656c69246f6e7f">[email&#160;protected]</span></a>
+        </div>
+      </div>
+      <div class="ref-card" style="background:var(--accent-light); border-color:var(--accent-mid);">
+        <div class="ref-name" style="color:var(--accent);">Case Studies</div>
+        <div class="ref-title" style="color:var(--accent-mid);">Additional customer case studies available at receiveddigital.com — covering higher education, government, and military verticals.</div>
+        <div class="ref-contact"><a href="https://receiveddigital.com/blog/?e-filter-5d21496-category=case-study" target="_blank" style="color:var(--accent-mid);">receiveddigital.com/case-studies →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- RESOURCES -->
+  <section id="resources">
+    <div class="section-label">Resources</div>
+    <h2>Supporting Materials</h2>
+
+    <ul class="resource-list">
+      <li class="resource-item">
+        <span class="resource-icon">🔒</span>
+        <div>
+          <a class="resource-link" href="https://digitalizedsoftware.com/security-practices/" target="_blank">Security Practices</a>
+          <div class="resource-meta">SOC 2 Type 2 · Full documentation available under NDA · Contact Brian Hudson, CIO</div>
+        </div>
+      </li>
+      <li class="resource-item">
+        <span class="resource-icon">📄</span>
+        <div>
+          <a class="resource-link" href="https://digitalizedsoftware.com/software-and-services-agreement/" target="_blank">Software and Services Agreement</a>
+          <div class="resource-meta">Digitalized Software</div>
+        </div>
+      </li>
+      <li class="resource-item">
+        <span class="resource-icon">📋</span>
+        <div>
+          <a class="resource-link" href="https://digitalizedsoftware.com/service-level-agreement/" target="_blank">Service Level Agreement</a>
+          <div class="resource-meta">Digitalized Software · &lt;20 min support response target</div>
+        </div>
+      </li>
+      <li class="resource-item">
+        <span class="resource-icon">⚙️</span>
+        <div>
+          <a class="resource-link" href="https://receiveddigital.com/how-it-works/#how-it-works" target="_blank">How Received Digital Works</a>
+          <div class="resource-meta">receiveddigital.com</div>
+        </div>
+      </li>
+      <li class="resource-item">
+        <span class="resource-icon">📰</span>
+        <div>
+          <a class="resource-link" href="https://receiveddigital.com/blog/?e-filter-5d21496-category=case-study" target="_blank">Customer Case Studies</a>
+          <div class="resource-meta">receiveddigital.com</
